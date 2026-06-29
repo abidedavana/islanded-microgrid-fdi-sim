@@ -1,0 +1,27 @@
+# --- Large raw dataset: download from UCI, see README (not committed) ---
+Python/Validation/RawDataset/
+
+# --- The paper and its drafts (kept out of the simulation repo) ---
+Paper/
+
+# --- Internal pre-submission audit / review notes (NOT for publication) ---
+VERIFICATION_REPORT.md
+AUDIT_SUMMARY.md
+NOVELTY_AND_CITATIONS.md
+COMPARISON_DEEPDIVE.md
+TRACEABILITY_MATRIX.md
+REGENERATION_LOG.md
+
+# --- Working / scratch folders ---
+_verify/
+_draft5/
+_audit_unpacked/
+_docx_scripts/
+
+# --- Tooling / OS / editor ---
+.claude/
+*.zip
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
