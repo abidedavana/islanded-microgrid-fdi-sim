@@ -1,0 +1,13 @@
+channel,detector,tpr_harm,tpr_safe,hbu
+PF,PCA-SPE (F1, model-free),1.0000,1.0000,0.0000
+PF,AE-MLP (F1, model-free),1.0000,1.0000,0.0000
+PF,PCA-SPE (F3, +droop model),1.0000,1.0000,0.0000
+PF,AE-MLP (F3, +droop model),1.0000,1.0000,0.0000
+PF,Physics oracle,1.0000,1.0000,0.0000
+PF,Residual BDD,0.0000,0.0000,1.0000
+QV,PCA-SPE (F1, model-free),0.9091,0.2750,0.0909
+QV,AE-MLP (F1, model-free),0.8966,0.2609,0.1034
+QV,PCA-SPE (F3, +droop model),0.9801,0.4218,0.0199
+QV,AE-MLP (F3, +droop model),0.9989,0.6211,0.0011
+QV,Physics oracle,0.9994,0.7278,0.0006
+QV,Residual BDD,0.0000,0.0000,1.0000

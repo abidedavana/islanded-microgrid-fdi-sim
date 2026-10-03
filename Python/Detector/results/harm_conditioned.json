@@ -1,0 +1,233 @@
+{
+  "PF": {
+    "channel": "PF",
+    "n_harmful": 5916,
+    "n_safe": 2112,
+    "detectors": {
+      "PCA-SPE (F1, model-free)": {
+        "tpr_harm": 1.0,
+        "tpr_safe": 1.0,
+        "hbu": 0.0
+      },
+      "AE-MLP (F1, model-free)": {
+        "tpr_harm": 1.0,
+        "tpr_safe": 1.0,
+        "hbu": 0.0
+      },
+      "PCA-SPE (F3, +droop model)": {
+        "tpr_harm": 1.0,
+        "tpr_safe": 1.0,
+        "hbu": 0.0
+      },
+      "AE-MLP (F3, +droop model)": {
+        "tpr_harm": 1.0,
+        "tpr_safe": 1.0,
+        "hbu": 0.0
+      },
+      "Physics oracle": {
+        "tpr_harm": 1.0,
+        "tpr_safe": 1.0,
+        "hbu": 0.0
+      },
+      "Residual BDD": {
+        "tpr_harm": 0.0,
+        "tpr_safe": 0.0,
+        "hbu": 1.0
+      }
+    },
+    "frontier": [
+      {
+        "magScale": 0.2,
+        "n_harmful": 0
+      },
+      {
+        "magScale": 0.4,
+        "n_harmful": 0
+      },
+      {
+        "magScale": 0.6,
+        "n_harmful": 183,
+        "tpr_harm_F1": 1.0,
+        "tpr_harm_F3": 1.0,
+        "tpr_harm_oracle": 1.0
+      },
+      {
+        "magScale": 0.8,
+        "n_harmful": 325,
+        "tpr_harm_F1": 1.0,
+        "tpr_harm_F3": 1.0,
+        "tpr_harm_oracle": 1.0
+      },
+      {
+        "magScale": 1.0,
+        "n_harmful": 421,
+        "tpr_harm_F1": 1.0,
+        "tpr_harm_F3": 1.0,
+        "tpr_harm_oracle": 1.0
+      },
+      {
+        "magScale": 1.2,
+        "n_harmful": 429,
+        "tpr_harm_F1": 1.0,
+        "tpr_harm_F3": 1.0,
+        "tpr_harm_oracle": 1.0
+      },
+      {
+        "magScale": 1.4,
+        "n_harmful": 335,
+        "tpr_harm_F1": 1.0,
+        "tpr_harm_F3": 1.0,
+        "tpr_harm_oracle": 1.0
+      }
+    ],
+    "within_magnitude": [
+      {
+        "magScale": 0.6,
+        "n_harm": 183,
+        "n_safe": 287,
+        "tpr_harm": 1.0,
+        "tpr_safe": 1.0
+      },
+      {
+        "magScale": 0.8,
+        "n_harm": 325,
+        "n_safe": 145,
+        "tpr_harm": 1.0,
+        "tpr_safe": 1.0
+      },
+      {
+        "magScale": 1.0,
+        "n_harm": 421,
+        "n_safe": 49,
+        "tpr_harm": 1.0,
+        "tpr_safe": 1.0
+      },
+      {
+        "magScale": 1.2,
+        "n_harm": 429,
+        "n_safe": 6,
+        "tpr_harm": 1.0,
+        "tpr_safe": 1.0
+      }
+    ]
+  },
+  "QV": {
+    "channel": "QV",
+    "n_harmful": 4634,
+    "n_safe": 3909,
+    "detectors": {
+      "PCA-SPE (F1, model-free)": {
+        "tpr_harm": 0.9091497626240829,
+        "tpr_safe": 0.2750063954975697,
+        "hbu": 0.09085023737591713
+      },
+      "AE-MLP (F1, model-free)": {
+        "tpr_harm": 0.8966335779024601,
+        "tpr_safe": 0.26093630084420566,
+        "hbu": 0.10336642209753988
+      },
+      "PCA-SPE (F3, +droop model)": {
+        "tpr_harm": 0.9801467414760466,
+        "tpr_safe": 0.42184701969813254,
+        "hbu": 0.019853258523953365
+      },
+      "AE-MLP (F3, +droop model)": {
+        "tpr_harm": 0.9989210185584808,
+        "tpr_safe": 0.6211307239703249,
+        "hbu": 0.001078981441519189
+      },
+      "Physics oracle": {
+        "tpr_harm": 0.9993526111350884,
+        "tpr_safe": 0.7278076234331031,
+        "hbu": 0.0006473888649115578
+      },
+      "Residual BDD": {
+        "tpr_harm": 0.0,
+        "tpr_safe": 0.0,
+        "hbu": 1.0
+      }
+    },
+    "frontier": [
+      {
+        "magScale": 0.2,
+        "n_harmful": 0
+      },
+      {
+        "magScale": 0.4,
+        "n_harmful": 0
+      },
+      {
+        "magScale": 0.6,
+        "n_harmful": 16,
+        "tpr_harm_F1": 1.0,
+        "tpr_harm_F3": 1.0,
+        "tpr_harm_oracle": 1.0
+      },
+      {
+        "magScale": 0.8,
+        "n_harmful": 196,
+        "tpr_harm_F1": 0.7908163265306123,
+        "tpr_harm_F3": 0.9540816326530612,
+        "tpr_harm_oracle": 1.0
+      },
+      {
+        "magScale": 1.0,
+        "n_harmful": 343,
+        "tpr_harm_F1": 0.9125364431486881,
+        "tpr_harm_F3": 0.9737609329446064,
+        "tpr_harm_oracle": 1.0
+      },
+      {
+        "magScale": 1.2,
+        "n_harmful": 426,
+        "tpr_harm_F1": 0.9413145539906104,
+        "tpr_harm_F3": 0.9882629107981221,
+        "tpr_harm_oracle": 1.0
+      },
+      {
+        "magScale": 1.4,
+        "n_harmful": 473,
+        "tpr_harm_F1": 0.9640591966173362,
+        "tpr_harm_F3": 0.9978858350951374,
+        "tpr_harm_oracle": 1.0
+      }
+    ],
+    "within_magnitude": [
+      {
+        "magScale": 0.6,
+        "n_harm": 16,
+        "n_safe": 484,
+        "tpr_harm": 1.0,
+        "tpr_safe": 0.26859504132231404
+      },
+      {
+        "magScale": 0.8,
+        "n_harm": 196,
+        "n_safe": 304,
+        "tpr_harm": 0.7908163265306123,
+        "tpr_safe": 0.34539473684210525
+      },
+      {
+        "magScale": 1.0,
+        "n_harm": 343,
+        "n_safe": 157,
+        "tpr_harm": 0.9125364431486881,
+        "tpr_safe": 0.40764331210191085
+      },
+      {
+        "magScale": 1.2,
+        "n_harm": 426,
+        "n_safe": 74,
+        "tpr_harm": 0.9413145539906104,
+        "tpr_safe": 0.40540540540540543
+      },
+      {
+        "magScale": 1.4,
+        "n_harm": 473,
+        "n_safe": 27,
+        "tpr_harm": 0.9640591966173362,
+        "tpr_safe": 0.48148148148148145
+      }
+    ]
+  }
+}

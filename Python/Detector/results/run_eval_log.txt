@@ -1,0 +1,91 @@
+
+================ CHANNEL PF ================
+  computing F2 physics features: TEST203_PF (4000 rows)
+  computing F2 physics features: TEST204_PF (4000 rows)
+  computing F2 physics features: TEST205_PF (4000 rows)
+  trained semi PCA-SPE  F1
+  trained semi PCA-T2   F1
+  trained semi AE-MLP   F1
+  trained semi OC-SVM   F1
+  trained semi IForest  F1
+  trained sup  LogReg   F1
+  trained sup  RF       F1
+  trained sup  HistGB   F1
+  trained sup  MLP      F1
+  trained semi PCA-SPE  F2
+  trained semi PCA-T2   F2
+  trained semi AE-MLP   F2
+  trained semi OC-SVM   F2
+  trained semi IForest  F2
+  trained sup  LogReg   F2
+  trained sup  RF       F2
+  trained sup  HistGB   F2
+  trained sup  MLP      F2
+  trained semi PCA-SPE  F3
+  trained semi PCA-T2   F3
+  trained semi AE-MLP   F3
+  trained semi OC-SVM   F3
+  trained semi IForest  F3
+  trained sup  LogReg   F3
+  trained sup  RF       F3
+  trained sup  HistGB   F3
+  trained sup  MLP      F3
+  evaluating TEST x5 ...
+  magnitude sweep ...
+  computing F2 physics features: MAG020_PF (2000 rows)
+  computing F2 physics features: MAG040_PF (2000 rows)
+  computing F2 physics features: MAG060_PF (2000 rows)
+  computing F2 physics features: MAG080_PF (2000 rows)
+  computing F2 physics features: MAG100_PF (2000 rows)
+  computing F2 physics features: MAG120_PF (2000 rows)
+  computing F2 physics features: MAG140_PF (2000 rows)
+  attack variants (naive / limited access) ...
+  contamination study ...
+  cadence sweep (F1 vs F1+delta) ...
+wrote results/eval_PF.json
+
+================ CHANNEL QV ================
+  computing F2 physics features: TEST203_QV (4000 rows)
+  computing F2 physics features: TEST204_QV (4000 rows)
+  computing F2 physics features: TEST205_QV (4000 rows)
+  trained semi PCA-SPE  F1
+  trained semi PCA-T2   F1
+  trained semi AE-MLP   F1
+  trained semi OC-SVM   F1
+  trained semi IForest  F1
+  trained sup  LogReg   F1
+  trained sup  RF       F1
+  trained sup  HistGB   F1
+  trained sup  MLP      F1
+  trained semi PCA-SPE  F2
+  trained semi PCA-T2   F2
+  trained semi AE-MLP   F2
+  trained semi OC-SVM   F2
+  trained semi IForest  F2
+  trained sup  LogReg   F2
+  trained sup  RF       F2
+  trained sup  HistGB   F2
+  trained sup  MLP      F2
+  trained semi PCA-SPE  F3
+  trained semi PCA-T2   F3
+  trained semi AE-MLP   F3
+  trained semi OC-SVM   F3
+  trained semi IForest  F3
+  trained sup  LogReg   F3
+  trained sup  RF       F3
+  trained sup  HistGB   F3
+  trained sup  MLP      F3
+  evaluating TEST x5 ...
+  magnitude sweep ...
+  computing F2 physics features: MAG020_QV (2000 rows)
+  computing F2 physics features: MAG040_QV (2000 rows)
+  computing F2 physics features: MAG060_QV (2000 rows)
+  computing F2 physics features: MAG080_QV (2000 rows)
+  computing F2 physics features: MAG100_QV (2000 rows)
+  computing F2 physics features: MAG120_QV (2000 rows)
+  computing F2 physics features: MAG140_QV (2000 rows)
+  attack variants (naive / limited access) ...
+  contamination study ...
+  cadence sweep (F1 vs F1+delta) ...
+wrote results/eval_QV.json
+wrote results/eval_crosschannel.json

@@ -1,0 +1,9 @@
+# Phase-2 detector pipeline -- pinned to the versions the paper's numbers were
+# produced with (verified this session). Python 3.11.9.
+numpy==2.2.6
+scipy==1.17.1
+scikit-learn==1.8.0
+pandas==2.3.2
+joblib==1.5.3
+threadpoolctl==3.6.0
+matplotlib==3.10.9

@@ -1,0 +1,42 @@
+{
+  "PF": {
+    "CAD025": {
+      "n_episodes": 381,
+      "detected": 381,
+      "median_steps_to_alarm": 1.0,
+      "p90_steps": 1.0
+    },
+    "CAD050": {
+      "n_episodes": 496,
+      "detected": 496,
+      "median_steps_to_alarm": 1.0,
+      "p90_steps": 1.0
+    },
+    "CAD075": {
+      "n_episodes": 382,
+      "detected": 382,
+      "median_steps_to_alarm": 1.0,
+      "p90_steps": 1.0
+    }
+  },
+  "QV": {
+    "CAD025": {
+      "n_episodes": 372,
+      "detected": 266,
+      "median_steps_to_alarm": 1.0,
+      "p90_steps": 1.0
+    },
+    "CAD050": {
+      "n_episodes": 495,
+      "detected": 381,
+      "median_steps_to_alarm": 1.0,
+      "p90_steps": 1.0
+    },
+    "CAD075": {
+      "n_episodes": 381,
+      "detected": 316,
+      "median_steps_to_alarm": 1.0,
+      "p90_steps": 2.0
+    }
+  }
+}

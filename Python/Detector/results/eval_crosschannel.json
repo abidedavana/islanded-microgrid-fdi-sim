@@ -1,0 +1,162 @@
+[
+  {
+    "train_ch": "PF",
+    "test_ch": "QV",
+    "model": "LogReg",
+    "fs": "F1",
+    "tpr_stealthy": 0.002006631156957281,
+    "tpr_ci": 0.0015737410363163699,
+    "fpr": 0.008167518422161317,
+    "fpr_ci": 0.004296300744589453
+  },
+  {
+    "train_ch": "PF",
+    "test_ch": "QV",
+    "model": "RF",
+    "fs": "F1",
+    "tpr_stealthy": 0.13401746336161968,
+    "tpr_ci": 0.058691788038964104,
+    "fpr": 0.003491473185316147,
+    "fpr_ci": 0.0010685714465493122
+  },
+  {
+    "train_ch": "PF",
+    "test_ch": "QV",
+    "model": "HistGB",
+    "fs": "F1",
+    "tpr_stealthy": 0.16441341280580246,
+    "tpr_ci": 0.06418991322875393,
+    "fpr": 0.01340063196151304,
+    "fpr_ci": 0.004403183882903029
+  },
+  {
+    "train_ch": "PF",
+    "test_ch": "QV",
+    "model": "MLP",
+    "fs": "F1",
+    "tpr_stealthy": 0.006122463048624396,
+    "tpr_ci": 0.005207491408480278,
+    "fpr": 0.010349556715854368,
+    "fpr_ci": 0.005079939257625144
+  },
+  {
+    "train_ch": "PF",
+    "test_ch": "QV",
+    "model": "LogReg",
+    "fs": "F3",
+    "tpr_stealthy": 0.00613435264269353,
+    "tpr_ci": 0.00084003511179979,
+    "fpr": 0.0093201723211049,
+    "fpr_ci": 0.0029746709806802068
+  },
+  {
+    "train_ch": "PF",
+    "test_ch": "QV",
+    "model": "RF",
+    "fs": "F3",
+    "tpr_stealthy": 0.06420486119416648,
+    "tpr_ci": 0.02880822415790485,
+    "fpr": 0.004896354894388428,
+    "fpr_ci": 0.0009719582020199822
+  },
+  {
+    "train_ch": "PF",
+    "test_ch": "QV",
+    "model": "HistGB",
+    "fs": "F3",
+    "tpr_stealthy": 0.9366476866397984,
+    "tpr_ci": 0.01508860121154933,
+    "fpr": 0.012396055337750187,
+    "fpr_ci": 0.00577290314478061
+  },
+  {
+    "train_ch": "PF",
+    "test_ch": "QV",
+    "model": "MLP",
+    "fs": "F3",
+    "tpr_stealthy": 0.00951923641208521,
+    "tpr_ci": 0.003717425321104728,
+    "fpr": 0.013763337521625469,
+    "fpr_ci": 0.006750361381547171
+  },
+  {
+    "train_ch": "QV",
+    "test_ch": "PF",
+    "model": "LogReg",
+    "fs": "F1",
+    "tpr_stealthy": 1.0,
+    "tpr_ci": 0.0,
+    "fpr": 0.01294332821980683,
+    "fpr_ci": 0.004464357369429873
+  },
+  {
+    "train_ch": "QV",
+    "test_ch": "PF",
+    "model": "RF",
+    "fs": "F1",
+    "tpr_stealthy": 1.0,
+    "tpr_ci": 0.0,
+    "fpr": 0.010296794730392243,
+    "fpr_ci": 0.0031956260268951237
+  },
+  {
+    "train_ch": "QV",
+    "test_ch": "PF",
+    "model": "HistGB",
+    "fs": "F1",
+    "tpr_stealthy": 1.0,
+    "tpr_ci": 0.0,
+    "fpr": 0.007508034668335497,
+    "fpr_ci": 0.002509502654293366
+  },
+  {
+    "train_ch": "QV",
+    "test_ch": "PF",
+    "model": "MLP",
+    "fs": "F1",
+    "tpr_stealthy": 1.0,
+    "tpr_ci": 0.0,
+    "fpr": 0.011620226785174369,
+    "fpr_ci": 0.00140784881346408
+  },
+  {
+    "train_ch": "QV",
+    "test_ch": "PF",
+    "model": "LogReg",
+    "fs": "F3",
+    "tpr_stealthy": 0.0006166704673819083,
+    "tpr_ci": 0.0011385101564836016,
+    "fpr": 0.011283211853073873,
+    "fpr_ci": 0.0033051799767237684
+  },
+  {
+    "train_ch": "QV",
+    "test_ch": "PF",
+    "model": "RF",
+    "fs": "F3",
+    "tpr_stealthy": 1.0,
+    "tpr_ci": 0.0,
+    "fpr": 0.0063756641022283565,
+    "fpr_ci": 0.0020034551789596417
+  },
+  {
+    "train_ch": "QV",
+    "test_ch": "PF",
+    "model": "HistGB",
+    "fs": "F3",
+    "tpr_stealthy": 1.0,
+    "tpr_ci": 0.0,
+    "fpr": 0.006512302830761647,
+    "fpr_ci": 0.0025544116582944436
+  },
+  {
+    "train_ch": "QV",
+    "test_ch": "PF",
+    "model": "MLP",
+    "fs": "F3",
+    "tpr_stealthy": 0.0,
+    "tpr_ci": 0.0,
+    "fpr": 0.009692243322599499,
+    "fpr_ci": 0.002166168228730205
+  }
+]

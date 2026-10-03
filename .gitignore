@@ -25,3 +25,16 @@ __pycache__/
 *.pyc
 .DS_Store
 Thumbs.db
+
+# --- Phase-2 generated datasets: 754 MB. NOT committed: fully regenerable from
+#     the seeded generators (MATLAB/Phase2/generate_all.m + generate_loadx.m) ---
+MATLAB/Phase2/Data/
+
+# --- Phase-2 physics-feature cache: 37 MB, rebuilt automatically on first run ---
+Python/Detector/results/cache/
+
+# --- Phase-2 manuscript + its internal audit/citation notes (same policy as Paper/) ---
+Paper2/
+
+# --- Internal lessons/decisions log (NOT for publication) ---
+PHASE2_NOTES.md

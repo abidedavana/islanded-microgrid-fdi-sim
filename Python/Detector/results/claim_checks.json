@@ -1,0 +1,152 @@
+{
+  "PF": {
+    "channel": "PF",
+    "n_test": 1040,
+    "atk_test": 237,
+    "stealthy_atk_test": 236,
+    "BDD_TPR_all_atk": 0.004219409282700422,
+    "BDD_TPR_stealthy_atk": 0.0,
+    "BDD_FPR": 0.009962640099626401,
+    "LogReg": {
+      "auc": 1.0,
+      "ap": 1.0,
+      "auc_stealthy_only": 1.0,
+      "tpr1pct_stealthy": 1.0
+    },
+    "RandomForest": {
+      "auc": 1.0,
+      "ap": 1.0,
+      "auc_stealthy_only": 1.0,
+      "tpr1pct_stealthy": 1.0
+    },
+    "PCA_SPE": {
+      "auc_stealthy": 1.0,
+      "tpr1pct_stealthy": 1.0
+    },
+    "IsolationForest": {
+      "tpr1pct_stealthy": 1.0
+    },
+    "frontier": [
+      {
+        "design_lo": 0.203563091995678,
+        "design_hi": 0.267540902396596,
+        "n": 47,
+        "mean_footprint": 0.18515973587928283,
+        "mean_abs_dev": 0.18582913556790487,
+        "p_loadshed": 0.23404255319148937,
+        "manifold_TPR1pct": 1.0
+      },
+      {
+        "design_lo": 0.267540902396596,
+        "design_hi": 0.308810264114656,
+        "n": 47,
+        "mean_footprint": 0.22986252137521268,
+        "mean_abs_dev": 0.2286345404674057,
+        "p_loadshed": 1.0,
+        "manifold_TPR1pct": 1.0
+      },
+      {
+        "design_lo": 0.308810264114656,
+        "design_hi": 0.388482061658746,
+        "n": 47,
+        "mean_footprint": 0.2798820030121167,
+        "mean_abs_dev": 0.261294611112326,
+        "p_loadshed": 1.0,
+        "manifold_TPR1pct": 1.0
+      },
+      {
+        "design_lo": 0.388482061658746,
+        "design_hi": 0.466223375300994,
+        "n": 47,
+        "mean_footprint": 0.3447615867986571,
+        "mean_abs_dev": 0.27439826658425154,
+        "p_loadshed": 1.0,
+        "manifold_TPR1pct": 1.0
+      },
+      {
+        "design_lo": 0.466223375300994,
+        "design_hi": 0.54901807655784,
+        "n": 48,
+        "mean_footprint": 0.4075427665977438,
+        "mean_abs_dev": 0.27196079097839804,
+        "p_loadshed": 1.0,
+        "manifold_TPR1pct": 1.0
+      }
+    ]
+  },
+  "QV": {
+    "channel": "QV",
+    "n_test": 1040,
+    "atk_test": 269,
+    "stealthy_atk_test": 265,
+    "BDD_TPR_all_atk": 0.01486988847583643,
+    "BDD_TPR_stealthy_atk": 0.0,
+    "BDD_FPR": 0.005188067444876783,
+    "LogReg": {
+      "auc": 1.0,
+      "ap": 1.0,
+      "auc_stealthy_only": 1.0,
+      "tpr1pct_stealthy": 1.0
+    },
+    "RandomForest": {
+      "auc": 0.9999807135039224,
+      "ap": 0.9999446688883159,
+      "auc_stealthy_only": 0.9999804223870005,
+      "tpr1pct_stealthy": 1.0
+    },
+    "PCA_SPE": {
+      "auc_stealthy": 0.9839414629371313,
+      "tpr1pct_stealthy": 0.8037735849056604
+    },
+    "IsolationForest": {
+      "tpr1pct_stealthy": 0.08679245283018867
+    },
+    "frontier": [
+      {
+        "design_lo": 0.0401310699301766,
+        "design_hi": 0.04944653897063282,
+        "n": 53,
+        "mean_footprint": 0.00657108348767803,
+        "mean_abs_dev": 0.08386552206184845,
+        "p_loadshed": 0.0,
+        "manifold_TPR1pct": 0.49056603773584906
+      },
+      {
+        "design_lo": 0.04944653897063282,
+        "design_hi": 0.0608378831322009,
+        "n": 53,
+        "mean_footprint": 0.007757505011416487,
+        "mean_abs_dev": 0.09571474324031261,
+        "p_loadshed": 0.33962264150943394,
+        "manifold_TPR1pct": 0.7169811320754716
+      },
+      {
+        "design_lo": 0.0608378831322009,
+        "design_hi": 0.0714437401409316,
+        "n": 53,
+        "mean_footprint": 0.009207592692997089,
+        "mean_abs_dev": 0.10953866479294838,
+        "p_loadshed": 0.9811320754716981,
+        "manifold_TPR1pct": 0.9056603773584906
+      },
+      {
+        "design_lo": 0.0714437401409316,
+        "design_hi": 0.07973737754239069,
+        "n": 53,
+        "mean_footprint": 0.010418410976777969,
+        "mean_abs_dev": 0.12113424832278756,
+        "p_loadshed": 1.0,
+        "manifold_TPR1pct": 0.9433962264150944
+      },
+      {
+        "design_lo": 0.07973737754239069,
+        "design_hi": 0.0898976260606908,
+        "n": 53,
+        "mean_footprint": 0.01200437336330762,
+        "mean_abs_dev": 0.13280838632684008,
+        "p_loadshed": 1.0,
+        "manifold_TPR1pct": 0.9622641509433962
+      }
+    ]
+  }
+}

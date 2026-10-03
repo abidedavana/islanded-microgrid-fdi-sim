@@ -1,5 +1,12 @@
 # Corrected Islanded-Microgrid FDI Simulation
 
+> **This repository now covers both phases.**
+> **Phase 1** (below) — the islanded-droop FDI simulation and the stealth/impact
+> characterisation. **Phase 2** (see [Phase 2](#phase-2--ml-detector)) — the
+> defender side: a semi-supervised detector, its evaluation pipeline, the
+> reproduction tests and the pinned environment.
+> Every seed used anywhere is listed in [Reproducibility and seeding](#reproducibility-and-seeding).
+
 This replaces the previous `MATLAB/SimulateIsland.m` and `MATLAB/SimulateIsland_Q.m`,
 which had physics and correctness defects that would not survive peer review
 (detailed below). The pipeline is now MATLAB-generated with two Python helpers:
@@ -128,3 +135,94 @@ noise, not the attack). Impact comes entirely from **converged** power flows.
   an extension; it would only make `f` *more* observable, not less).
 - The secondary controller is a single-step proportional restoration, not a full
   dynamic AGC loop.
+
+---
+
+# Phase 2 — ML detector
+
+Phase 1 showed the chi-squared bad-data detector (BDD) is blind to the stealthy
+`a = Hc` attack *by construction*. Phase 2 is the defender's side: a detector that
+is **not** blind, trained only on attack-free operation and needing no network or
+droop model.
+
+| File | Role |
+|---|---|
+| `MATLAB/Phase2/GenerateDetectorData.m` | Phase-2 data generator — a *logging derivative* of the frozen Phase-1 simulator (adds load-segment offset, named outputs, variant/stealth logging, persistent-attacker mode, per-bus load jitter). Verified **bit-for-bit** against Phase 1 before use. |
+| `MATLAB/Phase2/generate_all.m` | The main data campaign (TRAIN / VAL / 5x TEST / magnitude sweep / cadence cells). |
+| `MATLAB/Phase2/generate_loadx.m` | Heterogeneous-load robustness cells (per-bus load jitter). |
+| `Python/Detector/gridmodel.py` | Detector-side **iterative Gauss-Newton AC-WLS** state estimator (flat start, damped line search) + the physics (droop-consistency) features. Does *not* reuse the simulator's Jacobian. |
+| `Python/Detector/models.py` | Detector zoo: semi-supervised (PCA-SPE, PCA-T2, autoencoder, OC-SVM, isolation forest) and supervised (LogReg, RF, HistGB, MLP). |
+| `Python/Detector/run_eval.py` | Main evaluation matrix (thresholds, CIs, variants, contamination, cadence, ablations). |
+| `Python/Detector/harm_conditioned.py` | **Headline analysis**: detection conditioned on physical harm (load shedding). |
+| `Python/Detector/loadx_eval.py`, `contam_trim.py` | Robustness / mitigation studies. |
+| `Python/Detector/reverify_all.py` | Independent re-derivation of every reported rate (must print `ALL CHECKS PASS`). |
+| `Python/Detector/tests/test_repro.py` | Reproduction + integrity tests (metrics, leakage, determinism, estimator independence). |
+| `Python/Detector/requirements.txt` | Pinned environment. |
+| `Python/Detector/reproduce.sh` | One-command reproduction. |
+
+Design and protocol: `DETECTOR_DESIGN.md`. Results record: `PHASE2_RESULTS.md`.
+
+### Running Phase 2
+
+```bash
+# 1. Generate the Phase-2 datasets (MATLAB R2019a+; ~27 min + ~24 min).
+#    NOT committed: ~754 MB, and fully regenerable because every run is seeded.
+cd MATLAB/Phase2
+matlab -batch generate_all
+matlab -batch generate_loadx
+
+# 2. Reproduce every number, figure and table in one command.
+cd ../../Python/Detector
+pip install -r requirements.txt
+bash reproduce.sh
+```
+
+`reproduce.sh` ends with two gates that must both pass:
+`reverify_all.py` -> `ALL CHECKS PASS`, and `tests/test_repro.py` -> `ALL TESTS PASSED`.
+
+---
+
+## Reproducibility and seeding
+
+Every run in both phases is explicitly seeded; no result depends on an unseeded
+draw. Re-running the commands above reproduces the committed numbers exactly.
+
+**Phase 1 — `MATLAB/SimulateMicrogridFDI.m`**
+
+| Run | Seed | Notes |
+|---|---|---|
+| Headline dataset | **42** | `rng(p.seed)`, default `seed = 42`; 3000 steps, 400 warmup. This is the seed behind `VectorDataset_*_corrected/`. |
+| Multi-seed CI study | per-seed `rng(s)` | `'study'` mode loops over `p.seeds`. |
+| Magnitude sweep | **7** | `rng(7)` fixed so only `magScale` varies. |
+| Meter-access sweep | **7** | `rng(7)` fixed so only `access` varies. |
+
+**Phase 2 — `MATLAB/Phase2/generate_all.m`** (all UCI load segments disjoint)
+
+| Split | Seed(s) | UCI offset | Logged steps |
+|---|---|---|---|
+| TRAIN | 101 | 0 | 18,000 |
+| VAL | 105 | 40,000 | 4,000 |
+| TEST x5 | 201-205 | 80,000 ... 140,000 (15k apart) | 4,000 each |
+| MAG (magScale 0.2-1.4) | 301 | 160,000 | 2,000 each |
+| CAD (persistent attacker) + CADI100 control | 401 | 165,000 | 2,000 each |
+
+**Phase 2 — `MATLAB/Phase2/generate_loadx.m`** (heterogeneous load)
+
+| Split | Seed(s) | UCI offset | Jitter |
+|---|---|---|---|
+| LXTRAIN / LXVAL | 501 / 505 | 20,000 / 45,000 | 5 % |
+| LXT5 x5 | 511-515 | 50,000 ... 74,000 (6k apart) | 5 % |
+| LXT2 x2 | 521-522 | 168,000 / 174,000 | 2 % |
+
+**Python side.** Every stochastic estimator takes `random_state = SEED` (`SEED = 0`
+in `models.py`); subsampling uses `numpy.random.default_rng(SEED)`. `reproduce.sh`
+additionally pins `OMP_NUM_THREADS`/`PYTHONHASHSEED` so results are stable across
+machines with different BLAS thread counts. Re-running the pipeline twice produced
+byte-identical outputs, including after deleting the physics-feature cache and
+recomputing every state estimate from scratch.
+
+**Bit-for-bit gate.** Before any Phase-2 data is trusted, `GenerateDetectorData.m`
+is run at the frozen Phase-1 configuration (seed 42, 3000 steps, 400 warmup,
+offset 0) and must reproduce the committed `VectorDataset_*_corrected/` files
+**md5-identical** — all 22 files across both channels. This proves the Phase-2
+generator changed only logging, never the physics or the RNG stream.
