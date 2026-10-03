@@ -128,3 +128,54 @@ noise, not the attack). Impact comes entirely from **converged** power flows.
   an extension; it would only make `f` *more* observable, not less).
 - The secondary controller is a single-step proportional restoration, not a full
   dynamic AGC loop.
+
+---
+
+## Reproducibility and seeding
+
+Every run in this repository is explicitly seeded - no reported number depends on
+an unseeded draw.
+
+| Run | Seed | Produces |
+|---|---|---|
+| **Headline dataset** | **42** (`p.seed`, the default) | `MATLAB/VectorDataset_PF_corrected/` and `_QV_corrected/` - every committed CSV and figure |
+| Multi-seed statistical study | `p.seeds` (default `1:6`); `rng(s)` per seed | `Study_CIs.csv` |
+| Attack-magnitude sweep | **7** - `rng(7)` before every cell, so only `magScale` varies | `Study_mag_sweep.csv` |
+| Meter-access sweep | **7** - `rng(7)` before every cell, so only `access` varies | `Study_access_sweep.csv` |
+
+### Verified: the committed data regenerates exactly
+
+Re-running the headline command reproduces all **22** committed dataset files
+(11 per channel, both channels) **md5-identical**:
+
+```powershell
+cd MATLAB
+matlab -batch "SimulateMicrogridFDI('steps',3000,'warmup',400,'data','..\Python\Validation\RegroupedDataset\RegroupedData.csv')"
+```
+
+This was checked rather than assumed: a from-scratch regeneration was md5-compared
+against the committed `features_z`, `labels`, `J_residual`, `J_naive`, `J_limited`,
+`footprint`, `design`, `perceived`, `real_deviation`, `bdd_tau` and `events` files
+for both channels - 22/22 match.
+
+### RNG consumption order
+
+If you extend or port the generator and want to stay bit-compatible with the
+committed data, the order of random draws matters:
+
+1. `selftest()` runs **before** the channels and consumes draws - do not skip it.
+2. Then, per simulation step:
+   `randn(130)` meter noise -> `rand()` attack decision ->
+   *(only when attacked)* `rand()` attack magnitude -> `randn(130)` naive
+   same-norm vector -> `rand(130)` limited-access meter mask.
+
+A derivative generator that adds **logging only**, without inserting new draws,
+stays bit-for-bit compatible with the committed datasets.
+
+### Figure channel labels
+
+`Fig1_BDD_stealth_*` plots the dimensionless normalised residual `J/tau`, which
+aggregates all 130 meters (65 active-power: 33 `P`-injections + 32 `P`-flows;
+65 reactive-power: 33 `Q`-injections + 32 `Q`-flows). Because those axes carry no
+active/reactive cue on their own, each figure states its channel in the title:
+**P-f = ACTIVE power (P)**, **Q-V = REACTIVE power (Q) via the Q-V droop**.

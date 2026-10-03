@@ -65,7 +65,15 @@ def figs_for(channel, base=HERE):
     Jn_over_tau = J / tau
 
     # --- Fig 1: BDD stealthiness ---
+    # NOTE: both panels plot the dimensionless residual J/tau, which aggregates
+    # ALL 130 meters (65 active: 33 P-inj + 32 P-flow; 65 reactive: 33 Q-inj +
+    # 32 Q-flow). Nothing plotted here is itself a power quantity, so the channel
+    # is labelled explicitly -- the axes otherwise carry no active/reactive cue.
+    ch_tag = ('P-f channel: attack biases ACTIVE power (P) injections'
+              if is_pf else
+              'Q-V channel: attack biases DER voltages (REACTIVE power, Q, droop)')
     fig, ax = plt.subplots(1, 2, figsize=(PAGE_W, 2.8)); fig.subplots_adjust(wspace=0.34)
+    fig.suptitle(ch_tag, fontsize=9.5, y=1.03)
     ax[0].plot(idx[nom], (J/tau)[nom], color=C_NOM, lw=0.5, alpha=0.7, label=r'Normal $J/\tau$')
     ax[0].scatter(idx[atk], (J/tau)[atk], c=C_ATT, s=5, alpha=0.7, label=r'FDI $J_{att}/\tau$')
     ax[0].axhline(1.0, color=C_TAU, ls='--', lw=1.0, label=r'Detection limit')
