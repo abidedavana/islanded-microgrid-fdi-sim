@@ -9,6 +9,19 @@ which had physics and correctness defects that would not survive peer review
 | `MATLAB/SimulateMicrogridFDI.m` | **Simulation generator** (MATPOWER-free; verified in MATLAB R2026a) |
 | `Python/Validation/DataPreprocessing.py` | (optional) builds `RegroupedData.csv` load input from the raw UCI file |
 | `Python/Simulation/make_figures.py` | IEEE-style figures from the generated datasets |
+| `MATLAB/v2/SimulateMicrogridFDI_v2.m` | **Corrected simulator (v2)**: \|V\| meters, AC-consistent attacks, iterative AC-WLS, estimate-fed controller; see [`MATLAB/v2/README.md`](MATLAB/v2/README.md) |
+
+> **New: corrected simulator (v2).** `MATLAB/v2/` adds options for:
+> - voltage-magnitude meters at the DER buses;
+> - AC-consistent stealthy attacks that also falsify those meters;
+> - an iterative nonlinear AC-WLS estimator;
+> - a secondary controller fed the real (noisy) estimate;
+> - a limited-knowledge (stale-state) attacker;
+> - measured-frequency control.
+>
+> With all v2 options off, it reproduces the committed datasets byte for byte. It
+> also includes a 20-seed campaign with confidence intervals. The original
+> `SimulateMicrogridFDI.m` and its datasets below are unchanged.
 
 > A Python reference implementation (`microgrid_fdi_sim.py`) was used to develop and
 > cross-validate the model, then removed in favour of the MATLAB generator. Self-test

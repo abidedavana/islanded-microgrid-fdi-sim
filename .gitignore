@@ -25,3 +25,11 @@ __pycache__/
 *.pyc
 .DS_Store
 Thumbs.db
+
+# --- v2 simulator outputs (regenerate with v2_selftest / v2_pilot / run_campaign) ---
+MATLAB/v2/out/
+MATLAB/v2/campaign/runs/
+MATLAB/v2/campaign/metrics/
+MATLAB/v2/campaign/claims/
+MATLAB/v2/campaign/logs/
+MATLAB/v2/campaign/test/
